@@ -97,29 +97,25 @@ void draw_polygons( struct matrix *polygons, screen s, color c ) {
 
   
     //front face
-    add_polygon(edges, x0, y0, z0, x0, y1, z0, x1, y0, z0);
-    add_polygon(edges, x0, y1, z0, x1, y1, z0, x1, y0, z0);   
-	      
+    add_polygon(edges, x0, y0, z0, x1, y1, z0, x1, y0, z0);
+    add_polygon(edges, x0, y0, z0, x0, y1, z0, x1, y1, z0);     
     //back faced
-    add_polygon(edges, x1, y1, z1, x0, y0, z1, x1, y0, z1);
-    add_polygon(edges, x1, y1, z1, x0, y1, z1, x0, y0, z1);
-
+    add_polygon(edges, x1, y, z1, x, y1, z1, x, y, z1);
+    add_polygon(edges, x1, y, z1, x1, y1, z1, x, y1, z1); 
     //left frace
-    add_polygon(edges, x0, y1, z0, x0, y0, z1, x0, y1, z1);
-    add_polygon(edges, x0, y1, z0, x0, y0, z0, x0, y0, z1);  
-
+    add_polygon(edges, x, y, z1, x, y1, z, x, y, z); 
+    add_polygon(edges, x, y, z1, x, y1, z1, x, y1, z);
     //right farsi
-    add_polygon(edges, x1, y1, z1, x1, y0, z0, x1, y1, z0);
-    add_polygon(edges, x1, y1, z1, x1, y0, z1, x1, y0, z0);
-
+    add_polygon(edges, x1, y, z, x1, y1, z1, x1, y, z1); 
+    add_polygon(edges, x1, y, z, x1, y1, z, x1, y1, z1);
     //top facey
-    add_polygon(edges, x1, y0, z0, x0, y0, z1, x0, y0, z0);
-    add_polygon(edges, x1, y0, z0, x1, y0, z1, x0, y0, z1);
-
+    add_polygon(edges, x, y, z1, x1, y, z, x1, y, z1); 
+    add_polygon(edges, x, y, z1, x, y, z, x1, y, z);
     //bottom faco
-    add_polygon(edges, x0, y1, z0, x1, y1, z1, x1, y1, z0);
-    add_polygon(edges, x0, y1, z0, x0, y1, z1, x1, y1, z1);
+    add_polygon(edges, x, y1, z, x1, y1, z1, x1, y1, z);
+    add_polygon(edges, x, y1, z, x, y1, z1, x1, y1, z1);
   }
+
 
 
   /*======== void add_sphere() ==========
@@ -161,25 +157,25 @@ void draw_polygons( struct matrix *polygons, screen s, color c ) {
 
 	if(longt < longStop) {	
 	  add_polygon(polygons,
-		      points->m[0][index],
-		      points->m[1][index],
-		      points->m[2][index],
-		      points->m[0][index+1],
-		      points->m[1][index+1],
-		      points->m[2][index+1],
 		      points->m[0][next],
 		      points->m[1][next],
-		      points->m[2][next]);		      
-	  add_polygon(polygons,
+		      points->m[2][next],
 		      points->m[0][index+1],
 		      points->m[1][index+1],
 		      points->m[2][index+1],
+		      points->m[0][index],
+		      points->m[1][index],
+		      points->m[2][index]);		      
+	  add_polygon(polygons,
+		      points->m[0][next],
+		      points->m[1][next],
+		      points->m[2][next],
 		      points->m[0][next+1],
 		      points->m[1][next+1],
 		      points->m[2][next+1],
-		      points->m[0][next],
-		      points->m[1][next],
-		      points->m[2][next]);
+		      points->m[0][index+1],
+		      points->m[1][index+1],
+		      points->m[2][index+1]);
 	}
       }
     }
