@@ -101,7 +101,6 @@ void parse_file ( char * filename,
     
     if ( strncmp(line, "box", strlen(line)) == 0 ) {
       fgets(line, sizeof(line), f);
-      //printf("BOX\t%s", line);
 
       sscanf(line, "%lf %lf %lf %lf %lf %lf",
              xvals, yvals, zvals,
@@ -112,7 +111,6 @@ void parse_file ( char * filename,
 
     else if ( strncmp(line, "sphere", strlen(line)) == 0 ) {
       fgets(line, sizeof(line), f);
-      //printf("SPHERE\t%s", line);
 
       sscanf(line, "%lf %lf %lf %lf",
              xvals, yvals, zvals, &r);
@@ -121,7 +119,6 @@ void parse_file ( char * filename,
 
     else if ( strncmp(line, "torus", strlen(line)) == 0 ) {
       fgets(line, sizeof(line), f);
-      //printf("torus\t%s", line);
 
       sscanf(line, "%lf %lf %lf %lf %lf",
              xvals, yvals, zvals, &r, &r1);
@@ -130,7 +127,6 @@ void parse_file ( char * filename,
 
     else if ( strncmp(line, "circle", strlen(line)) == 0 ) {
       fgets(line, sizeof(line), f);
-      //printf("CIRCLE\t%s", line);
 
       sscanf(line, "%lf %lf %lf %lf",
              xvals, yvals, zvals, &r);
@@ -145,7 +141,6 @@ void parse_file ( char * filename,
         type = BEZIER;
       
       fgets(line, sizeof(line), f);
-      //printf("CURVE\t%s", line);
 
       sscanf(line, "%lf %lf %lf %lf %lf %lf %lf %lf",
              xvals, yvals, xvals+1, yvals+1,
